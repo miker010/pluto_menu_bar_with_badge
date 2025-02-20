@@ -7,6 +7,33 @@ void main() {
   runApp(const MyApp());
 }
 
+class Badge extends StatelessWidget {
+  final String text;
+
+  const Badge({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 16,
+      height: 16,
+      decoration: BoxDecoration(
+        color: Colors.red,
+        shape: BoxShape.circle,
+      ),
+      alignment: Alignment.center,
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 12,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    );
+  }
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -16,7 +43,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('PlutoMenuBar'),
+          title: const Text('PlutoMenuBar + Badge (or any other trailing widget)'),
         ),
         body: const PlutoMenuBarDemo(),
       ),
@@ -65,21 +92,25 @@ class _PlutoMenuBarDemoState extends State<PlutoMenuBarDemo> {
   List<PlutoMenuItem> _makeMenus(BuildContext context) {
     return [
       PlutoMenuItem(
-        title: 'Menu 1',
-        icon: Icons.home,
+        title: 'Menu 1a',
+        trailingWidget: Badge(text: "A"),
+        //icon: Icons.home,
         children: [
           PlutoMenuItem(
-            title: 'Menu 1-1',
-            icon: Icons.group,
+            title: 'M aa',
+            trailingWidget:Badge(text: "B"),
+           // icon: Icons.group,
             onTap: () => message(context, 'Menu 1-1 tap'),
             children: [
               PlutoMenuItem(
                 title: 'Menu 1-1-1',
+                trailingWidget: Badge(text: "C"),
                 onTap: () => message(context, 'Menu 1-1-1 tap'),
                 children: [
                   PlutoMenuItem(
                     title: 'Menu 1-1-1-1',
                     onTap: () => message(context, 'Menu 1-1-1-1 tap'),
+                    trailingWidget: Badge(text: "D"),
                   ),
                   PlutoMenuItem(
                     title: 'Menu 1-1-1-2',
@@ -95,6 +126,7 @@ class _PlutoMenuBarDemoState extends State<PlutoMenuBarDemo> {
           ),
           PlutoMenuItem(
             title: 'Menu 1-2',
+            trailingWidget: Badge(text: "Q"),
             onTap: () => message(context, 'Menu 1-2 tap'),
           ),
           PlutoMenuItem.divider(height: 10),

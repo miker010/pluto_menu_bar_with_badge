@@ -179,12 +179,14 @@ class _MenuWidgetState extends State<_MenuWidget> {
 
           menuItemWidget = TextButton(
             onPressed: item.onTap,
+
             style: TextButton.styleFrom(
               textStyle: widget.style.textStyle,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.zero,
               ),
             ),
+
             child: Padding(padding: padding, child: menuItemWidget),
           );
 
@@ -396,6 +398,12 @@ class _MenuWidgetState extends State<_MenuWidget> {
             SizedBox(width: 5),
           ],
           Text(widget.menu.title, style: textStyle),
+          if (widget.menu.trailingWidget != null)...[
+            Container(
+              padding: EdgeInsets.only(left: 5),
+              child: widget.menu.trailingWidget!,
+            )
+          ]
         ],
       ),
     );

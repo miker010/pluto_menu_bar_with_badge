@@ -43,6 +43,12 @@ class ButtonItemWidget extends StatelessWidget {
             overflow: TextOverflow.visible,
           ),
         ),
+        if (menu.trailingWidget != null) ...[
+          Container(
+            padding: EdgeInsets.only(left: 5),
+            child: menu.trailingWidget!,
+          )
+        ],
         if (menu.hasChildren && !menu.isBack)
           Icon(Icons.arrow_right, color: moreIconColor),
       ],

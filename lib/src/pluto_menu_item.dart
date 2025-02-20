@@ -19,6 +19,8 @@ class PlutoMenuItem {
 
   final bool enable;
 
+  final Widget? trailingWidget;
+
   /// Callback executed when a menu is tapped
   final Function()? onTap;
 
@@ -32,6 +34,7 @@ class PlutoMenuItem {
     required this.title,
     this.icon,
     this.enable = true,
+    this.trailingWidget = null,
     this.onTap,
     this.children,
   })  : _key = id == null ? GlobalKey() : GlobalObjectKey(id),
@@ -133,6 +136,7 @@ class PlutoMenuItem {
     this.children,
   })  : icon = null,
         enable = true,
+        trailingWidget = null,
         onTap = null,
         _key = GlobalKey(),
         _isBack = true;
