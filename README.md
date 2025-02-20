@@ -1,4 +1,7 @@
-## PlutoMenuBar for flutter - v3.0.1
+## PlutoMenuBar for flutter - v3.0.1 - FORKED
+
+###
+- This version adds the ability to add a trailing widget, such as a badge, to a menu item
 
 PlutoMenuBar is a horizontal menu bar for flutter.
 
