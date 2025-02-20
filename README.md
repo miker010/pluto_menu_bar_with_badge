@@ -3,6 +3,12 @@
 ###
 - This version adds the ability to add a trailing widget, such as a badge, to a menu item
 
+ PlutoMenuItem(
+        title: 'Menu 1a',
+        trailingWidget: Badge(text: "A"),
+        children: [
+        ...
+
 PlutoMenuBar is a horizontal menu bar for flutter.
 
 ### Features
